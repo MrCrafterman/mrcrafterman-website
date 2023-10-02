@@ -1,16 +1,68 @@
 ---
+import Projects from '../components/projects.astro'
 
+const project = [{
+  schedule: {
+    from: '2022',
+    to: 'Presente'
+  },
+  title_first: 'Fractal',
+  title_two: 'Openlab',
+  subtitle: 'Desarrollador frontend',
+  description: 'Plasmar en código el diseño de UI y UX, con medidas, animaciones, responsive design. Identificar y priorizar iniciativas de ingeniería para mejorar el rendimiento de la aplicación, reducir dependencias, mejorar la experiencia de desarrollo y eficiencia operacional.',
+  technologies: ['Angular', 'Typescript', 'SASS', 'JavaScript', 'PrimeNG', 'Firestore', 'Auth0']
+}]
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>MrCrafterman</title>
+    <script>
+      document.body.addEventListener('mousemove', (event) => {
+        const element = document.getElementById('cursoreffect')
+        element.style.background = 'radial-gradient(600px at ' + event.pageX + 'px ' + event.pageY + 'px, rgba(116, 25, 151, 0.15), transparent 80%)';
+        console.log(event)
+      })
+    </script>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-appblack">
+    <div id="cursoreffect" class="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute"></div>
+    <div class="mx-auto min-h-screen max-w-screen-xl px-24">
+      <div class="flex justify-between gap-4">
+        <header class="sticky top-0 w-1/2 py-24 max-h-screen">
+          <h1 class="font-bold text-6xl text-appmint"><a href="/">Luis Bonilla</a></h1>
+          <h2 class="mt-3 uppercase font-medium text-lg text-appwhite">Desarrollador frontend</h2>
+          <p class="mt-4 max-w-sm font-normal text-base text-appwhite">Construyendo soluciones con las últimas tendencias y mejores prácticas en plataformas web de vanguardia.</p>
+        </header>
+        <main class="w-1/2 pt-24">
+          <section id="about" class="mb-16" aria-label="About me">
+            <div>
+              <p class="mb-4">
+                Mi sólida habilidad en HTML, CSS y JavaScript, junto con mi experiencia en frameworks como <a class="font-bold hover:text-appteal focus-visible:text-appteal" href="https://angular.io/" target="_blank" rel="noreferrer">Angular</a>, me permite transformar ideas en interfaces atractivas y funcionales que cautivan a los usuarios.
+              </p>
+              <p class="font-normal text-base text-appwhite">Cuando no estoy en el trabajo, suelo estar viendo series, desarrollando mods para minecraft, o haciendo ejercicio/trotando con mis hermosos perrhijos.</p>
+            </div>
+          </section>
+          <Projects projects={project}/>
+        </ma>
+      </div>
+    </div>
 	</body>
+  <style>
+    :root {
+      font-family: 'Inter', sans-serif;
+      color: #E5E5E5
+    }
+    @supports (font-variation-settings: normal) {
+      :root {
+        font-family: 'Inter var', sans-serif;
+      }
+    }
+  </style>
 </html>
